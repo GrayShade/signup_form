@@ -1,18 +1,48 @@
+/* CSS reset starting here... */
+/* link: https://www.digitalocean.com/community/tutorials/css-minimal-css-reset 
+*/
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* CSS reset ending here... */
+
 @font-face {
   font-family: Norse-Bold;
   src: url('./fonts/Norse-Bold.otf');
 }
 
-:root,
+/* :root,
 body {
-  /* height: 100%; */
   margin: 0px;
-}
+} */
 
 :root {
   height: 100vh;
   /* overflow: hidden; */
 }
+
+
 
 :root * {
   box-sizing: border-box;
@@ -110,9 +140,9 @@ body {
   padding: 15px 0 0 35px;
 }
 
-#main-right-dv1 p:nth-of-type(even), #main-right-dv3 p  {
+/* #main-right-dv1 p:nth-of-type(even), #main-right-dv3 p  {
   padding-top: 0;
-}
+} */
 
 #main-right-dv2 {
   display: flex;
@@ -148,7 +178,7 @@ form div input {
 }
 
 label {
-  font-size: 0.9em;
+  font-size: 0.8em;
 }
 
 #main-right-dv3 {
@@ -159,7 +189,7 @@ label {
 }
 
 #main-right-dv3 a, #main-right-dv3 button {
-  color: #596D48
+  color: #596D48;
 }
 
 #main-right-dv3 button {
