@@ -237,6 +237,7 @@ form div input {
 
 label {
   font-size: 0.8em;
+  letter-spacing: 1.5px;
 }
 
 /* maindv-right-dv2 div {
@@ -252,6 +253,12 @@ label {
 
 #maindv-right-dv3 a, #maindv-right-dv3 button {
   color: #596D48;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+#maindv-right-dv3 p {
+  font-weight: 600;
 }
 
 #maindv-right-dv3 button {
