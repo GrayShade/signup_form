@@ -214,6 +214,7 @@ form div input {
   padding: 5px;
   width: 220px;
   border-radius: 5px;
+  border: 1px solid #E5E7EB;
 }
 
 label {
@@ -238,10 +239,11 @@ label {
 #maindv-right-dv3 button {
   /* margin-left: 35px; */
   margin: 20px 0 5px 35px;
-  padding: 8px 20px;
+  padding: 10px 35px;
   border-radius: 5px;
   color: white;
   background-color: #596D48;
+  border: none;
 }
 
 
