@@ -236,8 +236,13 @@ form div input {
 } */
 
 label {
-  font-size: 0.8em;
-  letter-spacing: 1.5px;
+  font-size: 12px;
+  letter-spacing: 1.1px;
+}
+
+#message {
+  font-size: 12px;
+  letter-spacing: 1.1px;
 }
 
 /* maindv-right-dv2 div {
@@ -257,8 +262,8 @@ label {
   font-weight: bold;
 }
 
-#maindv-right-dv3 p {
-  font-weight: 600;
+#maindv-right-dv3 p, label {
+  font-weight: 550;
 }
 
 #maindv-right-dv3 button {

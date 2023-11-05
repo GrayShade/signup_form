@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles.css">
+  <script type="text/javascript" src="js.js" defer></script>
   <title>Document</title>
 </head>
 
@@ -60,15 +61,18 @@
             <label for="pass">PASSWORD <span aria-label="required">*</span></label>
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
-            <input type="password" class="error" id="pass" name="pass"
+            <input type="password" class="error" id="pass" name="pass" onkeyup='matchPass();'
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
+              <span id="message"></span>
           </div>
           <div>
             <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
-            <input type="password" class="error" id="confirmpass" name="confirmpass"
+            <input type="password" class="error" id="confirmpass" name="confirmpass" onkeyup='matchPass();'
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
           </div>
+          
         </div>
+        
 
       </form>
       <!-- <div></div> -->
