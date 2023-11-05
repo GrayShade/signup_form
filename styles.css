@@ -140,7 +140,7 @@ body {
   /* border: 2px solid red; */
   /* padding-top: 10%; */
   /* padding: 100px 265px 0 40px; */
-  background-color: #f0f0f0;
+  background-color: ghostwhite;
   padding-bottom: 50px;
 }
 
@@ -209,6 +209,17 @@ form div>* {
   /* margin-right: 10%; */
 }
 
+input:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 3px 6px 0 lightgray;
+
+}
+
+input:invalid {
+  border-color: red;
+}
+
 form div input {
   /* padding: 5px 40px 5px 5px; */
   padding: 5px;
@@ -216,6 +227,13 @@ form div input {
   border-radius: 5px;
   border: 1px solid #E5E7EB;
 }
+
+
+
+/* body form div input:valid {
+  border: 1px solid blue ;
+  border-color: red;
+} */
 
 label {
   font-size: 0.8em;
@@ -229,7 +247,7 @@ label {
   min-height: 210px;
   width: 100%;
   /* border: 2px solid red; */
-  background-color: #f0f0f0;
+  background-color: ghostwhite;
 }
 
 #maindv-right-dv3 a, #maindv-right-dv3 button {
@@ -237,6 +255,7 @@ label {
 }
 
 #maindv-right-dv3 button {
+  box-shadow: 0 3px 5px 0 lightgray;
   /* margin-left: 35px; */
   margin: 20px 0 5px 35px;
   padding: 10px 35px;
@@ -245,6 +264,13 @@ label {
   background-color: #596D48;
   border: none;
 }
+
+#maindv-right-dv3 button:active { 
+  transform: scale(0.98); 
+  /* Scaling button to 0.98 to its original size */ 
+  /* box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);  */
+  /* Lowering the shadow */ 
+} 
 
 
 
