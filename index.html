@@ -16,7 +16,6 @@
       <p>ODIN</p>
     </div>
     <p>Photo by Halie West on Unsplash</p>
-    <!-- <div class="mainl-div2"></div> -->
   </div>
   <div id="maindv-right">
     <div id="maindv-right-dv1">
@@ -32,8 +31,6 @@
     </div>
     <div id="maindv-right-dv2">
       <p>Let's do this!</p>
-
-      <!-- <div id="maindv-right-dv2-sub-dv"> -->
       <form action="#" id="form" onsubmit="event.preventDefault();submitForm(event)">
         <div>
           <div>
@@ -41,6 +38,7 @@
             <input type="text" id="fname" name="fname" minlength="3" maxlength="20"
               onkeyup="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
             <span class="message" id="fname-message"></span>
+            <span class="message" id="fname-errorHints"></span>
           </div>
           <div>
             <label for="lname">LAST NAME <span aria-label="required">*</span></label>
@@ -79,13 +77,9 @@
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
             <span class="message" id="confirmpass-message"></span>
           </div>
-
         </div>
-
-
       </form>
-      <!-- <div></div> -->
-      <!-- </div> -->
+
     </div>
     <div id="maindv-right-dv3">
       <button form="form" type="submit">Create Account</button>
@@ -93,5 +87,4 @@
     </div>
   </div>
 </body>
-
 </html>
