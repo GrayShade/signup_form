@@ -34,26 +34,32 @@
       <p>Let's do this!</p>
 
       <!-- <div id="maindv-right-dv2-sub-dv"> -->
-      <form action="#" id="form">
+      <form action="#" id="form" onsubmit="event.preventDefault();submitForm(event)">
         <div>
           <div>
             <label for="fname">FIRST NAME <span aria-label="required">*</span></label>
-            <input type="text" id="fname" name="fname" minlength="3" maxlength="20" pattern="^[a-zA-Z]*$">
+            <input type="text" id="fname" name="fname" minlength="3" maxlength="20"
+              onkeyup="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
+            <span class="message" id="fname-message"></span>
           </div>
           <div>
             <label for="lname">LAST NAME <span aria-label="required">*</span></label>
             <input type="text" id="lname" name="lname" minlength="3" maxlength="20" pattern="^[a-zA-Z]*$">
+            <span class="message" id="lname-message"></span>
           </div>
         </div>
         <div>
           <div>
             <label for="email">EMAIL <span aria-label="required">*</span></label>
             <input type="email" id="email" name="email" minlength="5" maxlength="20"
+              onkeyup="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
+            <span class="message" id="email-message"></span>
           </div>
           <div>
             <label for="phone">PHONE NUMBER</label>
             <input type="tel" id="phone" name="phone" pattern="^[0-9]{4}[\-][0-9]{7}$" placeholder="03XX-1XXXX67">
+            <span class="message" id="phone-message"></span>
           </div>
         </div>
         <div>
@@ -61,18 +67,21 @@
             <label for="pass">PASSWORD <span aria-label="required">*</span></label>
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
-            <input type="password" class="error" id="pass" name="pass" onkeyup='matchPass();'
+            <input type="password" class="error" id="pass" name="pass"
+              onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'pass', 'pass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
-              <span id="message"></span>
+            <span class="message" id="pass-message"></span>
           </div>
           <div>
             <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
-            <input type="password" class="error" id="confirmpass" name="confirmpass" onkeyup='matchPass();'
+            <input type="password" class="error" id="confirmpass" name="confirmpass"
+              onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
+            <span class="message" id="confirmpass-message"></span>
           </div>
-          
+
         </div>
-        
+
 
       </form>
       <!-- <div></div> -->
