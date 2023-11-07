@@ -1,6 +1,6 @@
 @font-face {
   font-family: Norse-Bold;
-  src: url('./fonts/Norse-Bold.otf');
+  src: url('./../fonts/Norse-Bold.otf');
 }
 
 :root {
@@ -214,18 +214,20 @@ label {
 .tooltip {
   display: inline;
   position: relative;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.1);
   padding: 0px 5px;
   border-radius: 100%;
   font-size: 14px;
   cursor: help;
-  /* opacity: 1; */
+
+  opacity: 1;
+  display: none;
 }
 
   .tooltip::before, .tooltip::after{
   position: absolute;
   left: 50%;
-  opacity: 0;
+  opacity: 1;
   transition: allease0.3s;
   }
   .tooltip::before{

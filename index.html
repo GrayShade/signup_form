@@ -46,14 +46,24 @@
             <span class="message" id="fname-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
-            <label for="lname">LAST NAME </label>
+            <div class="label-and-tooltip-pair-div">
+              <label for="lname">LAST NAME </label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <input type="text" id="lname" name="lname" minlength="3" maxlength="20" pattern="^[a-zA-Z]*$">
             <span class="message" id="lname-message"></span>
           </div>
         </div>
         <div class="maindv-right-dv2-field-pair">
           <div class="maindv-right-dv2-field-single">
-            <label for="email">EMAIL <span aria-label="required">*</span></label>
+            <div class="label-and-tooltip-pair-div">
+              <label for="email">EMAIL <span aria-label="required">*</span></label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <input type="email" id="email" name="email" minlength="5" maxlength="20"
               onkeyup="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
@@ -61,7 +71,12 @@
             <span class="message" id="email-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
-            <label for="phone">PHONE NUMBER</label>
+            <div class="label-and-tooltip-pair-div">
+              <label for="phone">PHONE NUMBER</label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <!-- Example: 1234-1234567 -->
             <input type="tel" id="phone" name="phone" pattern="^[0-9]{4}[\-][0-9]{7}$" placeholder="03XX-1XXXX67">
             <span class="message" id="phone-message"></span>
@@ -69,7 +84,12 @@
         </div>
         <div class="maindv-right-dv2-field-pair">
           <div class="maindv-right-dv2-field-single">
-            <label for="pass">PASSWORD <span aria-label="required">*</span></label>
+            <div class="label-and-tooltip-pair-div">
+              <label for="pass">PASSWORD <span aria-label="required">*</span></label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
             <input type="password" class="error" id="pass" name="pass"
@@ -78,7 +98,12 @@
             <span class="message" id="pass-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
-            <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
+            <div class="label-and-tooltip-pair-div">
+              <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <input type="password" class="error" id="confirmpass" name="confirmpass"
               onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">

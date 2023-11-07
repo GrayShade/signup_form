@@ -66,11 +66,49 @@ function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
   }
 }
 
-document.addEventListener('keyup', function(event) {
+document.addEventListener('keyup', function(e) {
   debugger;
-  let ele = event.target.id;
-  let message = document.getElementById(event.target.parentNode.lastElementChild.id);
-  if (ele.value == '' && (ele == 'pass' || ele == 'confirmpass')) {
-    message.innerHTML = ''
+  let inputEle = e.target;
+  // let toolTipSpan = document.querySelector('#fname-tooltip');
+  let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
+  let message = document.getElementById(e.target.parentNode.lastElementChild.id);
+
+
+  // 
+  // if (ele.value == '' && (ele == 'pass' || ele == 'confirmpass')) {
+  //   message.innerHTML = ''
+  // }
+  // console.log(this.hasFocus());
+
+  if (inputEle.checkValidity() === false && document.activeElement == inputEle) {
+    toolTipSpan.style.display = 'block';
+  }
+  else {
+    toolTipSpan.style.display = 'none';
+  }
+
+});
+
+// if tooltip is shown & user moves to next element, tooltip should hide:
+document.addEventListener('focusout', (e) => {
+  let inputEle = e.target;
+  let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
+
+    toolTipSpan.style.display = 'none';
+  // }
+});
+
+// if user moves to next element which has error but no tooltip because of
+// listener on focusout event, tooltip should be shown again:
+document.addEventListener('focusin', (e) => {
+  let inputEle = e.target;
+  let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
+
+  if (inputEle.checkValidity() === false && toolTipSpan.style.display == 'none') {
+    toolTipSpan.style.display = 'block';
+  }
+  else {
+    toolTipSpan.style.display = 'none';
   }
 });
+
