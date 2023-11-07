@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/styles.css">
   <script type="text/javascript" src="js.js" defer></script>
   <title>Document</title>
 </head>
@@ -32,36 +33,42 @@
     <div id="maindv-right-dv2">
       <p>Let's do this!</p>
       <form action="#" id="form" onsubmit="event.preventDefault();submitForm(event)">
-        <div>
-          <div>
-            <label for="fname">FIRST NAME <span aria-label="required">*</span></label>
+        <div class="maindv-right-dv2-field-pair">
+          <div class="maindv-right-dv2-field-single">
+            <div class="label-and-tooltip-pair-div">
+              <label for="fname">FIRST NAME <span aria-label="required">*</span></label>
+              <span class="tooltip"
+                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+            </div>
+
             <input type="text" id="fname" name="fname" minlength="3" maxlength="20"
               onkeyup="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
             <span class="message" id="fname-message"></span>
-            <span class="message" id="fname-errorHints"></span>
           </div>
-          <div>
-            <label for="lname">LAST NAME <span aria-label="required">*</span></label>
+          <div class="maindv-right-dv2-field-single">
+            <label for="lname">LAST NAME </label>
             <input type="text" id="lname" name="lname" minlength="3" maxlength="20" pattern="^[a-zA-Z]*$">
             <span class="message" id="lname-message"></span>
           </div>
         </div>
-        <div>
-          <div>
+        <div class="maindv-right-dv2-field-pair">
+          <div class="maindv-right-dv2-field-single">
             <label for="email">EMAIL <span aria-label="required">*</span></label>
             <input type="email" id="email" name="email" minlength="5" maxlength="20"
               onkeyup="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
+            <!-- Example abc/123@something.com -->
             <span class="message" id="email-message"></span>
           </div>
-          <div>
+          <div class="maindv-right-dv2-field-single">
             <label for="phone">PHONE NUMBER</label>
+            <!-- Example: 1234-1234567 -->
             <input type="tel" id="phone" name="phone" pattern="^[0-9]{4}[\-][0-9]{7}$" placeholder="03XX-1XXXX67">
             <span class="message" id="phone-message"></span>
           </div>
         </div>
-        <div>
-          <div>
+        <div class="maindv-right-dv2-field-pair">
+          <div class="maindv-right-dv2-field-single">
             <label for="pass">PASSWORD <span aria-label="required">*</span></label>
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
@@ -70,7 +77,7 @@
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
             <span class="message" id="pass-message"></span>
           </div>
-          <div>
+          <div class="maindv-right-dv2-field-single">
             <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
             <input type="password" class="error" id="confirmpass" name="confirmpass"
               onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
@@ -87,4 +94,5 @@
     </div>
   </div>
 </body>
+
 </html>

@@ -18,7 +18,9 @@ var matchPass = function (event) {
   if (pass === confirmpass && pass != '' && confirmpass != '') {
     message.style.color = 'green';
     message.innerHTML = 'Passwords Match!'
-  } else {
+  }
+  else
+  {
     message.style.color = 'red';
     message.innerHTML = "*Passwords do not Match!"
   }
@@ -53,8 +55,22 @@ function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
   if (eleVal != '') {
     message.innerHTML = ''
   }
+  else 
+  if ((eleName == 'pass' || eleName == 'confirmpass') && document.getElementById('pass-message').value == '*Passwords do not Match!') {
+    message.style.color = 'red';
+    message.innerHTML = "*Field Required!"
+  }
   else {
     message.style.color = 'red';
     message.innerHTML = "*Field Required!"
   }
 }
+
+document.addEventListener('keyup', function(event) {
+  debugger;
+  let ele = event.target.id;
+  let message = document.getElementById(event.target.parentNode.lastElementChild.id);
+  if (ele.value == '' && (ele == 'pass' || ele == 'confirmpass')) {
+    message.innerHTML = ''
+  }
+});
