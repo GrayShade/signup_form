@@ -27,6 +27,7 @@ var matchPass = function (event) {
 }
 
 function checkEmptyAfterSubmit(e, index, message) {
+  
   eleVal = e.target.elements[index].value;
   let span_message = document.getElementById(message);
   if (eleVal != '') {
@@ -66,21 +67,14 @@ function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
   }
 }
 
+
+// tooltip show or hide:
 document.addEventListener('keyup', function(e) {
   debugger;
   let inputEle = e.target;
-  // let toolTipSpan = document.querySelector('#fname-tooltip');
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
-  let message = document.getElementById(e.target.parentNode.lastElementChild.id);
 
-
-  // 
-  // if (ele.value == '' && (ele == 'pass' || ele == 'confirmpass')) {
-  //   message.innerHTML = ''
-  // }
-  // console.log(this.hasFocus());
-
-  if (inputEle.checkValidity() === false && document.activeElement == inputEle) {
+  if (inputEle.checkValidity() === false) {
     toolTipSpan.style.display = 'block';
   }
   else {
@@ -95,13 +89,19 @@ document.addEventListener('focusout', (e) => {
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
 
     toolTipSpan.style.display = 'none';
-  // }
+
 });
 
 // if user moves to next element which has error but no tooltip because of
 // listener on focusout event, tooltip should be shown again:
 document.addEventListener('focusin', (e) => {
   let inputEle = e.target;
+
+
+  // no need to run this on button:
+  if (inputEle.type === 'submit') {
+    return;
+  }
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
 
   if (inputEle.checkValidity() === false && toolTipSpan.style.display == 'none') {
