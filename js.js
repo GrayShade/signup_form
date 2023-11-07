@@ -19,15 +19,14 @@ var matchPass = function (event) {
     message.style.color = 'green';
     message.innerHTML = 'Passwords Match!'
   }
-  else
-  {
+  else {
     message.style.color = 'red';
     message.innerHTML = "*Passwords do not Match!"
   }
 }
 
 function checkEmptyAfterSubmit(e, index, message) {
-  
+
   eleVal = e.target.elements[index].value;
   let span_message = document.getElementById(message);
   if (eleVal != '') {
@@ -56,20 +55,20 @@ function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
   if (eleVal != '') {
     message.innerHTML = ''
   }
-  else 
-  if ((eleName == 'pass' || eleName == 'confirmpass') && document.getElementById('pass-message').value == '*Passwords do not Match!') {
-    message.style.color = 'red';
-    message.innerHTML = "*Field Required!"
-  }
-  else {
-    message.style.color = 'red';
-    message.innerHTML = "*Field Required!"
-  }
+  else
+    if ((eleName == 'pass' || eleName == 'confirmpass') && document.getElementById('pass-message').value == '*Passwords do not Match!') {
+      message.style.color = 'red';
+      message.innerHTML = "*Field Required!"
+    }
+    else {
+      message.style.color = 'red';
+      message.innerHTML = "*Field Required!"
+    }
 }
 
 
 // tooltip show or hide:
-document.addEventListener('keyup', function(e) {
+document.addEventListener('input', function (e) {
   debugger;
   let inputEle = e.target;
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
@@ -86,9 +85,14 @@ document.addEventListener('keyup', function(e) {
 // if tooltip is shown & user moves to next element, tooltip should hide:
 document.addEventListener('focusout', (e) => {
   let inputEle = e.target;
+
+  // no need to run this on button:
+  if (inputEle.type === 'submit') {
+    return;
+  }
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
 
-    toolTipSpan.style.display = 'none';
+  toolTipSpan.style.display = 'none';
 
 });
 

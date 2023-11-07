@@ -129,7 +129,6 @@ form .maindv-right-dv2-field-pair {
   flex-wrap: wrap;
   row-gap: 20px;
   column-gap: 55px;
-  align-items: center;
 }
 
 form div>* {

@@ -42,7 +42,7 @@
             </div>
 
             <input type="text" id="fname" name="fname" minlength="3" maxlength="20"
-              onkeyup="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
+              oninput="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
             <span class="message" id="fname-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
@@ -65,7 +65,7 @@
             </div>
 
             <input type="email" id="email" name="email" minlength="5" maxlength="20"
-              onkeyup="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
+              oninput="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
             <!-- Example abc/123@something.com -->
             <span class="message" id="email-message"></span>
@@ -93,7 +93,7 @@
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
             <input type="password" class="error" id="pass" name="pass"
-              onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'pass', 'pass-message');"
+              oninput="matchPass(event);checkEmptyBeforeSubmit(event, 'pass', 'pass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
             <span class="message" id="pass-message"></span>
           </div>
@@ -101,11 +101,11 @@
             <div class="label-and-tooltip-pair-div">
               <label for="confirmpass">CONFIRM PASSWORD <span aria-label="required">*</span></label>
               <span class="tooltip"
-                data-tooltip="Password must contain at least 1 uppercase letter, 1 lowercase letter, a special character and minimum 8 characters">?</span>
+                data-tooltip="Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one number and one special character">?</span>
             </div>
 
             <input type="password" class="error" id="confirmpass" name="confirmpass"
-              onkeyup="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
+              oninput="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
             <span class="message" id="confirmpass-message"></span>
           </div>
