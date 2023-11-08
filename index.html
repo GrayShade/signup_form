@@ -30,7 +30,7 @@
     </div>
     <div id="maindv-right-dv2">
       <p>Let's do this!</p>
-      <form action="#" id="form" onsubmit="event.preventDefault();submitForm(event)">
+      <form action="#" id="form" onsubmit="event.preventDefault();submitForm()">
         <div class="maindv-right-dv2-field-pair">
           <div class="maindv-right-dv2-field-single">
             <div class="label-and-tooltip-pair-div">
@@ -38,7 +38,6 @@
               <span class="tooltip"
                 data-tooltip="Minimum 3 & maximum 20, Upper & lowercase letters only, No numbers or symbols allowed">?</span>
             </div>
-
             <input type="text" class="required fname-required" id="fname" name="fname" minlength="3" maxlength="20"
               oninput="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
             <span class="required fname-required message" id="fname-message"></span>
@@ -49,7 +48,6 @@
               <span class="tooltip"
                 data-tooltip="Minimum 3 & maximum 20, Upper & lowercase letters only, No numbers or symbols allowed">?</span>
             </div>
-
             <input type="text" id="lname" name="lname" minlength="3" maxlength="20" pattern="^[a-zA-Z]*$">
             <span class="message" id="lname-message"></span>
           </div>
@@ -64,7 +62,6 @@
             <input type="email" class=" required email-required" id="email" name="email" minlength="5" maxlength="20"
               oninput="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
-            <!-- Example abc/123@something.com -->
             <span class="required email-required message" id="email-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
@@ -72,9 +69,7 @@
               <label for="phone">PHONE NUMBER</label>
               <span class="tooltip" data-tooltip="4 digits, Then hyphen(-), Then 7 digits">?</span>
             </div>
-
-            <!-- Example: 1234-1234567 -->
-            <input type="tel" id="phone" name="phone" pattern="^[0-9]{4}[\-][0-9]{7}$" placeholder="03XX-1XXXX67">
+            <input type="tel" id="phone" name="phone" pattern="^[0-9]{4}[\-][0-9]{7}$">
             <span class="message" id="phone-message"></span>
           </div>
         </div>
@@ -85,9 +80,6 @@
               <span class="tooltip"
                 data-tooltip="Minimum 5 and maximum 20 characters, At least 1 lowercase letter, 1 uppercase letter, 1 number & 1 special character">?</span>
             </div>
-
-            <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
-               number and one special character: -->
             <input type="password" class="required pass-required error" id="pass" name="pass"
               oninput="matchPass(event);checkEmptyBeforeSubmit(event, 'pass', 'pass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
