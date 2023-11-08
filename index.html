@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/reset.css">
   <link rel="stylesheet" href="./styles/styles.css">
-  <script type="text/javascript" src="js.js" defer></script>
+  <script type="text/javascript" src="validation.js" defer></script>
   <title>Document</title>
 </head>
 
@@ -27,8 +27,6 @@
         <p>Sign up <em>now</em> to get started.</p>
         <p>You <em>know</em> you want to.</p>
       </div>
-      <div></div>
-
     </div>
     <div id="maindv-right-dv2">
       <p>Let's do this!</p>
@@ -41,9 +39,9 @@
                 data-tooltip="Minimum 3 & maximum 20, Upper & lowercase letters only, No numbers or symbols allowed">?</span>
             </div>
 
-            <input type="text" id="fname" name="fname" minlength="3" maxlength="20"
+            <input type="text" class="required fname-required" id="fname" name="fname" minlength="3" maxlength="20"
               oninput="checkEmptyBeforeSubmit(event, 'fname', 'fname-message');" pattern="^[a-zA-Z]*$">
-            <span class="message" id="fname-message"></span>
+            <span class="required fname-required message" id="fname-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
             <div class="label-and-tooltip-pair-div">
@@ -63,11 +61,11 @@
               <span class="tooltip" data-tooltip="Minimum 3 & maximum 20, 1 or more alphanumeric characters, Then @,
                1 or more alphanumeric characters or dots(.), Then ending portion">?</span>
             </div>
-            <input type="email" id="email" name="email" minlength="5" maxlength="20"
+            <input type="email" class=" required email-required" id="email" name="email" minlength="5" maxlength="20"
               oninput="checkEmptyBeforeSubmit(event, 'email', 'email-message');"
               pattern="^[a-zA-Z0-9]{1,}[@][a-zA-Z0-9.]{1,}$">
             <!-- Example abc/123@something.com -->
-            <span class="message" id="email-message"></span>
+            <span class="required email-required message" id="email-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
             <div class="label-and-tooltip-pair-div">
@@ -90,10 +88,10 @@
 
             <!-- Minimum 5 and maximum 20 characters, at least one lowercase letter, one uppercase letter, one
                number and one special character: -->
-            <input type="password" class="error" id="pass" name="pass"
+            <input type="password" class="required pass-required error" id="pass" name="pass"
               oninput="matchPass(event);checkEmptyBeforeSubmit(event, 'pass', 'pass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
-            <span class="message" id="pass-message"></span>
+            <span class="required pass-required message" id="pass-message"></span>
           </div>
           <div class="maindv-right-dv2-field-single">
             <div class="label-and-tooltip-pair-div">
@@ -102,14 +100,13 @@
                 data-tooltip="Minimum 5 and maximum 20 characters, At least one lowercase letter, one uppercase letter, one number and one special character">?</span>
             </div>
 
-            <input type="password" class="error" id="confirmpass" name="confirmpass"
+            <input type="password" class="required confirmpass-required error" id="confirmpass" name="confirmpass"
               oninput="matchPass(event);checkEmptyBeforeSubmit(event, 'confirmpass', 'confirmpass-message');"
               pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d\s]).{5,20}$">
-            <span class="message" id="confirmpass-message"></span>
+            <span class="required confirmpass-required message" id="confirmpass-message"></span>
           </div>
         </div>
       </form>
-
     </div>
     <div id="maindv-right-dv3">
       <button form="form" type="submit">Create Account</button>

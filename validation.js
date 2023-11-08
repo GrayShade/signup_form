@@ -1,8 +1,31 @@
 function submitForm(e) {
-  fname_check_presence = checkEmptyAfterSubmit(e, 0, 'fname-message');
-  email_check_presence = checkEmptyAfterSubmit(e, 2, 'email-message');
-  pass_check_presence = checkEmptyAfterSubmit(e, 4, 'pass-message');
-  confirmpass_check_presence = checkEmptyAfterSubmit(e, 5, 'confirmpass-message');
+  debugger;
+  // all_inputs = document.querySelectorAll('input');
+  // all_msg_Spans = document.querySelectorAll('.message');
+
+  // for(let i=0; i<all_inputs.length; i++) {
+  //   // console.log(all_inputs[i]);
+  //   // As required fields are not for all fields but we are iterating on all input fields
+  //   req_msg_span = all_msg_Spans[i].classList[i]
+
+  // below e event is for whole form, not individual elements:
+  // debugger;
+
+  req_inputs = document.querySelectorAll('input.required');
+  req_msg_spans = document.querySelectorAll('span.required');
+
+  for (let i = 0; i < req_inputs.length; i++) {
+    // req_msg_span = all_msg_Spans[i].classList[i]
+    // req_msg_spans = document.querySelectorAll('span.required');
+    checkEmptyAfterSubmit(e, req_inputs[i], req_msg_spans[i]);
+  }
+
+  // }
+
+  // fname_check_presence = checkEmptyAfterSubmit(e, 0, 'fname-message');
+  // email_check_presence = checkEmptyAfterSubmit(e, 2, 'email-message');
+  // pass_check_presence = checkEmptyAfterSubmit(e, 4, 'pass-message');
+  // confirmpass_check_presence = checkEmptyAfterSubmit(e, 5, 'confirmpass-message');
 }
 
 var matchPass = function (event) {
@@ -21,24 +44,13 @@ var matchPass = function (event) {
   }
   else {
     message.style.color = 'red';
-    message.innerHTML = "*Passwords do not Match!"
-  }
-}
-
-function checkEmptyAfterSubmit(e, index, message) {
-
-  eleVal = e.target.elements[index].value;
-  let span_message = document.getElementById(message);
-  if (eleVal != '') {
-    span_message.innerHTML = ''
-  } else {
-    span_message.style.color = 'red';
-    span_message.innerHTML = "*Field Required!"
-
+    message.innerHTML = "*Passwords do not Match!";
   }
 }
 
 function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
+  debugger;
+  let ele = event.target;
   let eleVal = document.getElementById(eleName).value;
   let message = document.getElementById(eleMessage);
 
@@ -52,24 +64,49 @@ function checkEmptyBeforeSubmit(event, eleName, eleMessage) {
     return;
   }
 
-  if (eleVal != '') {
+  if (eleVal != '' && ele.checkValidity() === true) {
+    ele.style.borderColor = 'blue';
     message.innerHTML = ''
-  }
-  else
-    if ((eleName == 'pass' || eleName == 'confirmpass') && document.getElementById('pass-message').value == '*Passwords do not Match!') {
-      message.style.color = 'red';
-      message.innerHTML = "*Field Required!"
+  } else
+    if (eleVal != '' && ele.checkValidity() === false) {
+      ele.style.borderColor = 'red';
+      message.innerHTML = ''
     }
-    else {
-      message.style.color = 'red';
-      message.innerHTML = "*Field Required!"
-    }
+    else
+      if ((eleName == 'pass' || eleName == 'confirmpass') && document.getElementById('pass-message').value == '*Passwords do not Match!') {
+        message.style.color = 'red';
+        message.innerHTML = "*Field Required!"
+      }
+      else {
+        ele.style.borderColor = 'red';
+        message.style.color = 'red';
+        message.innerHTML = "*Field Required!"
+      }
 }
+
+function checkEmptyAfterSubmit(e, ele, msg_span) {
+
+  // eleVal = e.target.elements[index].value;
+  debugger;
+  eleVal = ele.value;
+  // message_span = ''
+  // let message_span_ele = document.querySelector(message_span);
+  if (eleVal != '' && ele.checkValidity() === true) {
+    msg_span.innerHTML = ''
+  } else {
+    // below is bring form instead of element.
+
+    // ele.style.borderColor = 'red';
+    msg_span.style.color = 'red';
+    msg_span.innerHTML = "*Field Required!"
+
+  }
+}
+
 
 
 // tooltip show or hide:
 document.addEventListener('input', function (e) {
-  debugger;
   let inputEle = e.target;
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
 
