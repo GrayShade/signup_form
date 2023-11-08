@@ -73,7 +73,7 @@ function checkEmptyAfterSubmit(ele, msg_span) {
   }
 }
 
-document.addEventListener('input', function (e) {
+document.addEventListener('input', (e) => {
   let inputEle = e.target;
   let toolTipSpan = inputEle.previousElementSibling.lastElementChild;
 
