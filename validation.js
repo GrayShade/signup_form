@@ -88,8 +88,13 @@ document.addEventListener('input', (e) => {
 
 // if tooltip is shown & user moves to next element, tooltip should hide:
 document.addEventListener('focusout', (e) => {
-  let inputEle = e.target;
+    // <<focusout is firing on every element of document, so returning if
+    // focused out element is not input:
+  if (e.target.tagName !== 'INPUT') {
+    return;
+  }
 
+  let inputEle = e.target;
   // no need to run this on button:
   if (inputEle.type === 'submit') {
     return;
@@ -103,6 +108,12 @@ document.addEventListener('focusout', (e) => {
 // if user moves to next element which has error but no tooltip because of
 // listener on focusout event, tooltip should be shown again:
 document.addEventListener('focusin', (e) => {
+  // <<focusin is firing on every element of document, so returning if
+  // focused in element is not input:
+  if (e.target.tagName !== 'INPUT') {
+    return;
+  }
+
   let inputEle = e.target;
   // no need to run this on button:
   if (inputEle.type === 'submit') {
