@@ -60,10 +60,10 @@ body {
   align-self: center;
 }
 
-#maindv-left p {
+#maindv-left > p {
   color: #f0f0f0;
   padding-bottom: 10px;
-
+  font-size: small;
 }
 
 #maindv-left a {
